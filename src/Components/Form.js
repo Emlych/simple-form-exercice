@@ -2,21 +2,20 @@ import React from "react";
 import Results from "./Results";
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
-  // const [formsubmit, setformsubmit] = useState(false);
+  const [formsubmit, setformsubmit] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (confirmpassword !== password) {
       window.alert("Vos deux mots de passe ne sont pas identiques");
     } else {
-      // setformsubmit(true);
       document.getElementById("form").style.display = "none";
-      <Results />;
+      setformsubmit(true);
     }
   };
   return (
