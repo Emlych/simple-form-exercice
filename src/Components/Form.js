@@ -1,4 +1,5 @@
 import React from "react";
+import Results from "./Results";
 import { useState } from "react";
 
 const Form = () => {
@@ -15,10 +16,11 @@ const Form = () => {
     } else {
       // setformsubmit(true);
       document.getElementById("form").style.display = "none";
+      <Results />;
     }
   };
   return (
-    <div className="form" onSubmit={handleSubmit}>
+    <div className="form" id="form" onSubmit={handleSubmit}>
       <h1>Create Account</h1>
       <form>
         <label>Name</label>
