@@ -1,5 +1,6 @@
 /* Form */
-.form {
+.form,
+.result {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +40,7 @@ input {
   cursor: pointer;
 }
 /* form -- button */
-.btn-submit {
+.btn {
   background-color: #5c47d3;
   color: white;
   border: none;
@@ -48,8 +49,15 @@ input {
   font-size: 15px;
   font-weight: 700;
 }
-.btn-submit:hover {
+.btn:hover {
   cursor: pointer;
+}
+
+/* Password error */
+.error {
+  margin-top: 20px;
+  color: red;
+  display: none;
 }
 
 /* Footer */
@@ -64,4 +72,22 @@ input {
   font-weight: bold;
   margin-right: 3px;
   margin-left: 3px;
+}
+
+/* Result */
+.result-form {
+  margin-top: 20px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  padding: 40px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p {
+  padding-bottom: 10px;
+}
+.result-btn {
+  padding: 10px 10px;
 }

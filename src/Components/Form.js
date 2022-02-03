@@ -1,17 +1,20 @@
 import React from "react";
-// import Results from "./Results";
-import { useState } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
-const Form = (props) => {
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-
+const Form = ({
+  handleSubmit,
+  surname,
+  setsurname,
+  email,
+  setemail,
+  password,
+  setpassword,
+  confirmpassword,
+  setconfirmpassword,
+}) => {
   const showpassword = () => {
     let pwd = document.getElementById("password");
-
     pwd.type === "password" ? (pwd.type = "text") : (pwd.type = "password");
   };
   const showconfirmpassword = () => {
@@ -21,16 +24,16 @@ const Form = (props) => {
       : (confirmpwd.type = "password");
   };
   return (
-    <div className="form" id="form" onSubmit={props.handleSubmit}>
+    <div className="form" id="form" onSubmit={handleSubmit}>
       <h1>Create Account</h1>
       <form>
         <label>Name</label>
         <input
           type="text"
-          value={name}
+          value={surname}
           placeholder="Jean Dupont"
           onChange={(event) => {
-            setname(event.target.value);
+            setsurname(event.target.value);
           }}
         />
         <label>Email</label>
@@ -46,10 +49,10 @@ const Form = (props) => {
         <div className="password-input">
           <input
             type="password"
-            value={props.password}
+            value={password}
             placeholder="lErEacCtEuR2020"
             onChange={(event) => {
-              props.setpassword(event.target.value);
+              setpassword(event.target.value);
             }}
             id="password"
           />
@@ -60,17 +63,21 @@ const Form = (props) => {
         <div className="password-input">
           <input
             type="password"
-            value={props.confirmpassword}
+            value={confirmpassword}
             placeholder="lErEacCtEuR2020"
             onChange={(event) => {
-              props.setconfirmpassword(event.target.value);
+              setconfirmpassword(event.target.value);
             }}
             id="password-confirm"
           />
           <FontAwesomeIcon icon={faEye} onClick={showconfirmpassword} />
         </div>
 
-        <input type="submit" value="Register" className="btn-submit" />
+        <p className="error" id="error">
+          Les mots de passe ne sont pas identiques
+        </p>
+
+        <input type="submit" value="Register" className="btn" />
       </form>
     </div>
   );
