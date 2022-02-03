@@ -21,14 +21,14 @@ function App() {
 
   return (
     <div className="app">
-      <Form />
-      <Footer
-        techno="React"
-        author="Emlych"
+      <Form
         handleSubmit={handleSubmit}
         password={password}
+        setpassword={setpassword}
         confirmpassword={confirmpassword}
+        setconfirmpassword={setconfirmpassword}
       />
+      <Footer techno="React" author="Emlych" />
       {formsubmit && <Results />}
     </div>
   );

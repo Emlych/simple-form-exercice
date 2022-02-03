@@ -1,5 +1,5 @@
 import React from "react";
-import Results from "./Results";
+// import Results from "./Results";
 import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,19 +8,18 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 const Form = (props) => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
-  // const [password, setpassword] = useState("");
-  // const [confirmpassword, setconfirmpassword] = useState("");
-  // const [formsubmit, setformsubmit] = useState(false);
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (confirmpassword !== password) {
-  //     window.alert("Vos deux mots de passe ne sont pas identiques");
-  //   } else {
-  //     document.getElementById("form").style.display = "none";
-  //     setformsubmit(true);
-  //   }
-  // };
+  const showpassword = () => {
+    let pwd = document.getElementById("password");
+
+    pwd.type === "password" ? (pwd.type = "text") : (pwd.type = "password");
+  };
+  const showconfirmpassword = () => {
+    let confirmpwd = document.getElementById("password-confirm");
+    confirmpwd.type === "password"
+      ? (confirmpwd.type = "text")
+      : (confirmpwd.type = "password");
+  };
   return (
     <div className="form" id="form" onSubmit={props.handleSubmit}>
       <h1>Create Account</h1>
@@ -52,8 +51,9 @@ const Form = (props) => {
             onChange={(event) => {
               props.setpassword(event.target.value);
             }}
+            id="password"
           />
-          <FontAwesomeIcon icon={faEye} />
+          <FontAwesomeIcon icon={faEye} onClick={showpassword} />
         </div>
 
         <label>Confirm your password</label>
@@ -65,8 +65,9 @@ const Form = (props) => {
             onChange={(event) => {
               props.setconfirmpassword(event.target.value);
             }}
+            id="password-confirm"
           />
-          <FontAwesomeIcon icon={faEye} />
+          <FontAwesomeIcon icon={faEye} onClick={showconfirmpassword} />
         </div>
 
         <input type="submit" value="Register" className="btn-submit" />
