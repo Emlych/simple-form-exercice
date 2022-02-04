@@ -55,12 +55,10 @@ const Form = ({
             onChange={(event) => {
               setpassword(event.target.value);
             }}
-            id="password"
             className={validpassword ? "" : "false"}
           />
           <FontAwesomeIcon icon={faEye} onClick={showpassword} />
         </div>
-
         <label>Confirm your password</label>
         <div className="password-input">
           <input
@@ -70,15 +68,16 @@ const Form = ({
             onChange={(event) => {
               setconfirmpassword(event.target.value);
             }}
-            id="password-confirm"
             className={validpassword ? "" : "false"}
           />
           <FontAwesomeIcon icon={faEye} onClick={showconfirmpassword} />
         </div>
 
-        <p className="error" id="error">
-          Les mots de passe ne sont pas identiques
-        </p>
+        {!validpassword && (
+          <p className="error" id="error">
+            Les mots de passe ne sont pas identiques
+          </p>
+        )}
 
         <input type="submit" value="Register" className="btn" />
       </form>

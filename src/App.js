@@ -16,32 +16,40 @@ function App() {
     event.preventDefault();
     if (confirmpassword !== password) {
       setvalidpassword(false);
-
-      document.getElementById("error").style.display = "block";
       //window.alert("Vos deux mots de passe ne sont pas identiques");
     } else {
-      document.getElementById("form").style.display = "none";
       setformsubmit(true);
     }
   };
 
+  const editInfo = () => {
+    setformsubmit(false);
+  };
+
   return (
     <div className="app">
-      <Form
-        surname={surname}
-        setsurname={setsurname}
-        email={email}
-        setemail={setemail}
-        handleSubmit={handleSubmit}
-        password={password}
-        setpassword={setpassword}
-        confirmpassword={confirmpassword}
-        setconfirmpassword={setconfirmpassword}
-        validpassword={validpassword}
-      />
-      {formsubmit && (
-        <Results surname={surname} email={email} password={password} />
+      {!formsubmit ? (
+        <Form
+          surname={surname}
+          setsurname={setsurname}
+          email={email}
+          setemail={setemail}
+          handleSubmit={handleSubmit}
+          password={password}
+          setpassword={setpassword}
+          confirmpassword={confirmpassword}
+          setconfirmpassword={setconfirmpassword}
+          validpassword={validpassword}
+        />
+      ) : (
+        <Results
+          surname={surname}
+          email={email}
+          password={password}
+          editInfo={editInfo}
+        />
       )}
+
       <Footer techno="React" author="Emlych" />
     </div>
   );
