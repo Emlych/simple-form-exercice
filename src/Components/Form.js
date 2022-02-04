@@ -12,6 +12,7 @@ const Form = ({
   setpassword,
   confirmpassword,
   setconfirmpassword,
+  validpassword,
 }) => {
   const showpassword = () => {
     let pwd = document.getElementById("password");
@@ -55,6 +56,7 @@ const Form = ({
               setpassword(event.target.value);
             }}
             id="password"
+            className={validpassword ? "" : "false"}
           />
           <FontAwesomeIcon icon={faEye} onClick={showpassword} />
         </div>
@@ -69,6 +71,7 @@ const Form = ({
               setconfirmpassword(event.target.value);
             }}
             id="password-confirm"
+            className={validpassword ? "" : "false"}
           />
           <FontAwesomeIcon icon={faEye} onClick={showconfirmpassword} />
         </div>

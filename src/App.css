@@ -59,6 +59,9 @@ input {
   color: red;
   display: none;
 }
+.false {
+  border: solid 1px red;
+}
 
 /* Footer */
 .footer {

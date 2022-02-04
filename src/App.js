@@ -7,16 +7,16 @@ import { useState } from "react";
 function App() {
   const [surname, setsurname] = useState("");
   const [email, setemail] = useState("");
-  const [formsubmit, setformsubmit] = useState(false);
+  const [formsubmit, setformsubmit] = useState(false); //équivalent au isValid de la correction
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
+  const [validpassword, setvalidpassword] = useState(true);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (confirmpassword !== password) {
-      document.getElementById("password").style.border = "solid 1px red";
-      document.getElementById("password-confirm").style.border =
-        "solid 1px red";
+      setvalidpassword(false);
+
       document.getElementById("error").style.display = "block";
       //window.alert("Vos deux mots de passe ne sont pas identiques");
     } else {
@@ -37,6 +37,7 @@ function App() {
         setpassword={setpassword}
         confirmpassword={confirmpassword}
         setconfirmpassword={setconfirmpassword}
+        validpassword={validpassword}
       />
       {formsubmit && (
         <Results surname={surname} email={email} password={password} />
